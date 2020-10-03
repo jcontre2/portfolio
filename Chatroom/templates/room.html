@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name ="roomName" content="{{roomName}}">
+<title>Room: {{roomName}}</title>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="room.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+  <h1>Room: {{roomName}}</h1>
+  <button type="button" onclick="changeNickname()">Change Name</button>
+  <form method="POST" action="/{{roomName}}/messages" id = "messageForm">
+    <input type="text" name = "message" id="messageField">
+    <input type="hidden" name="nickname" id="nicknameField" value="">
+    <input type="submit" value="Send">
+  </form>
+  <ul>
+    <li style="display:inline-block;"><ul id="list"></ul></li>
+    <li style="display:inline-block; float:right;"><ul id="members">Members in Room</ul></li>
+  </ul>
+</body>
+</html>
